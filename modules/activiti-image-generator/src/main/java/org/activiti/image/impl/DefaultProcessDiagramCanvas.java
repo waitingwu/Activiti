@@ -140,9 +140,9 @@ public class DefaultProcessDiagramCanvas {
   protected FontMetrics fontMetrics;
   protected boolean closed;
   protected ClassLoader customClassLoader;
-  protected String activityFontName = "Arial";
-  protected String labelFontName = "Arial";
-  protected String annotationFontName = "Arial";
+  protected String activityFontName = "宋体";
+  protected String labelFontName = "宋体";
+  protected String annotationFontName = "宋体";
   
   /**
    * Creates an empty canvas with given width and height.
@@ -160,15 +160,15 @@ public class DefaultProcessDiagramCanvas {
     this.canvasHeight = height;
     this.minX = minX;
     this.minY = minY;
-    if (activityFontName != null) {
-      this.activityFontName = activityFontName;
-    }
-    if (labelFontName != null) {
-      this.labelFontName = labelFontName;
-    }
-    if (annotationFontName != null) {
-      this.annotationFontName = annotationFontName;
-    }
+    // if (activityFontName != null) {
+    //   this.activityFontName = activityFontName;
+    // }
+    // if (labelFontName != null) {
+    //   this.labelFontName = labelFontName;
+    // }
+    // if (annotationFontName != null) {
+    //   this.annotationFontName = annotationFontName;
+    // }
     this.customClassLoader = customClassLoader;
     
     initialize(imageType);
