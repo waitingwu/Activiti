@@ -91,6 +91,13 @@ public class MybatisJobDataManager extends AbstractDataManager<JobEntity> implem
 
   @Override
   @SuppressWarnings("unchecked")
+  public List<JobEntity> findMyExpiredJobs(Page page) {
+    Date now = getClock().getCurrentTime();
+    return getDbSqlSession().selectList("mySelectExpiredJobs", now, page);
+  }
+
+  @Override
+  @SuppressWarnings("unchecked")
   public List<Job> findJobsByQueryCriteria(JobQueryImpl jobQuery, Page page) {
     final String query = "selectJobByQueryCriteria";
     return getDbSqlSession().selectList(query, jobQuery, page);
@@ -114,6 +121,13 @@ public class MybatisJobDataManager extends AbstractDataManager<JobEntity> implem
     Map<String, Object> params = new HashMap<String, Object>(2);
     params.put("id", jobId);
     getDbSqlSession().update("resetExpiredJob", params);
+  }
+
+  @Override
+  public void updateJobVersion(String jobId) {
+    Map<String, Object> params = new HashMap<String, Object>(2);
+    params.put("id", jobId);
+    getDbSqlSession().update("updateJobVersion", params);
   }
   
 }

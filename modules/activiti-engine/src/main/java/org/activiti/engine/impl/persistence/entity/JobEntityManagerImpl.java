@@ -111,6 +111,11 @@ public class JobEntityManagerImpl extends AbstractEntityManager<JobEntity> imple
   public List<JobEntity> findExpiredJobs(Page page) {
     return jobDataManager.findExpiredJobs(page);
   }
+
+  @Override
+  public List<JobEntity> findMyExpiredJobs(Page page) {
+    return jobDataManager.findMyExpiredJobs(page);
+  }
   
   @Override
   public void resetExpiredJob(String jobId) {
@@ -130,6 +135,11 @@ public class JobEntityManagerImpl extends AbstractEntityManager<JobEntity> imple
   @Override
   public void updateJobTenantIdForDeployment(String deploymentId, String newTenantId) {
     jobDataManager.updateJobTenantIdForDeployment(deploymentId, newTenantId);
+  }
+
+  @Override
+  public void updateJobVersion(String jobId) {
+    jobDataManager.updateJobVersion(jobId);
   }
 
   @Override

@@ -36,6 +36,8 @@ public interface JobDataManager extends DataManager<JobEntity> {
 
   List<JobEntity> findExpiredJobs(Page page);
 
+  List<JobEntity> findMyExpiredJobs(Page page);
+
   List<Job> findJobsByQueryCriteria(JobQueryImpl jobQuery, Page page);
 
   long findJobCountByQueryCriteria(JobQueryImpl jobQuery);
@@ -43,5 +45,7 @@ public interface JobDataManager extends DataManager<JobEntity> {
   void updateJobTenantIdForDeployment(String deploymentId, String newTenantId);
 
   void resetExpiredJob(String jobId);
+
+  void updateJobVersion(String jobId);
 
 }

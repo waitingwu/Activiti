@@ -69,6 +69,11 @@ public interface JobEntityManager extends EntityManager<JobEntity> {
    * date and is deemed to be in error. 
    */
   List<JobEntity> findExpiredJobs(Page page);
+
+  /**
+   * Like findExpiredJobs, but add a query condition (REV_ = 1)
+   */
+  List<JobEntity> findMyExpiredJobs(Page page);
   
   /**
    * Executes a {@link JobQueryImpl} and returns the matching {@link JobEntity} instances.
@@ -91,5 +96,10 @@ public interface JobEntityManager extends EntityManager<JobEntity> {
    * Changes the tenantId for all jobs related to a given {@link DeploymentEntity}. 
    */
   void updateJobTenantIdForDeployment(String deploymentId, String newTenantId);
+
+  /**
+   * Changes the job version for a given job. 
+   */
+  void updateJobVersion(String jobId);
   
 }
